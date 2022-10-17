@@ -52,7 +52,7 @@ function Todo(props) {
               <Button
                 primary
                 onClick={() => {
-                  if (newTask) props.dispatch(addTodo(newTask));
+                  if (newTask.trim()!=="") props.dispatch(addTodo(newTask));
                   else alert("Please enter a valid task!!");
                 }}
                 size="slim"
