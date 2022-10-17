@@ -63,7 +63,7 @@ function Todo(props) {
           </FormLayout>
         </Card>
         <Card sectioned>
-          <Page>
+          <Page title="Your List">
             {" "}
             {props.completed.map((it, i) => (
               <Card>
@@ -73,9 +73,12 @@ function Todo(props) {
                     {" "}
                     <label>{it.data}</label>{" "}
                   </div>
-                  <div onClick={() => handleEdit(it.data, i)}>
-                    <Icon source={EditMinor} color="highlight" />
-                  </div>
+                  {!it.completed && (
+                    <div onClick={() => handleEdit(it.data, i)}>
+                      <Icon source={EditMinor} color="highlight" />
+                    </div>
+                  )}
+
                   <div onClick={() => props.dispatch(deleteTodo(i))}>
                     <Icon source={DeleteMinor} color="critical" />
                   </div>
